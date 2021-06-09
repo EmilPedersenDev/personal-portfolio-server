@@ -23,8 +23,7 @@ const sendEmail = (res, options) => {
     },
     (err, data) => {
       if (err) {
-        console.log(err);
-        return;
+        return res.status(err.responseCode).json({ message: err.message });
       }
 
       const emailOptions = {
