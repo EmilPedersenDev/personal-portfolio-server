@@ -13,7 +13,5 @@ module.exports = async (app) => {
     }
 
     sendEmail(res, req.body);
-
-    res.sendStatus(200);
   });
 };
