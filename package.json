@@ -4,8 +4,7 @@
   "description": "A message server",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "build": "sh deploy_message_server.sh"
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "personal portfolio",
