@@ -1,29 +1,28 @@
-const { body } = require("express-validator");
+const { body } = require('express-validator');
 
 const personalInformation = () => {
   return [
-    body("name")
+    body('name')
       .not()
       .isEmpty()
       .trim()
-      .withMessage("Name cannot be empty.")
+      .withMessage('Name cannot be empty.')
       .bail()
       .matches(/^[A-Za-z\s]+$/)
-      .withMessage("Name must be alphabetic.")
+      .withMessage('Name must be alphabetic.')
       .bail(),
-    body("message")
+    body('message')
       .not()
       .isEmpty()
       .trim()
-      .withMessage("Message cannot be empty.")
+      .withMessage('Message cannot be empty.')
       .bail()
       .isLength({ min: 10 })
-      .withMessage("Message must be at least 10 characters.")
+      .withMessage('Message must be at least 10 characters.')
       .bail()
       .isLength({ max: 1000 })
-      .withMessage("Message cannot be longer than 1000 characters.")
+      .withMessage('Message cannot be longer than 1000 characters.')
       .bail(),
-    body("email").isEmail().bail(),
   ];
 };
 
