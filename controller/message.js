@@ -13,7 +13,7 @@ module.exports = async (app) => {
     }
 
     try {
-      const sheetKeysFile = __dirname + '/../sheets-keys.json';
+      const sheetKeysFile = __dirname + '/../keys.json';
 
       const auth = new google.auth.GoogleAuth({
         keyFile: sheetKeysFile,
