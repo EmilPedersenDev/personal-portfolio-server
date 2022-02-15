@@ -12,9 +12,9 @@ module.exports = async (app) => {
       });
     }
 
-    try {
-      const sheetKeysFile = __dirname + '/../keys.json';
+    const sheetKeysFile = __dirname + '/../keys.json';
 
+    try {
       const auth = new google.auth.GoogleAuth({
         keyFile: sheetKeysFile,
         scopes: process.env.GOOGLE_API_URL,
@@ -38,10 +38,11 @@ module.exports = async (app) => {
           values: [[name, message]],
         },
       });
+      res.sendStatus(200);
     } catch (e) {
-      res.status(403).send(e);
+      res.status(403).json({
+        message: 'Could not send message.',
+      });
     }
-
-    res.sendStatus(200);
   });
 };
